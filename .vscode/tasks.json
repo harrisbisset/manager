@@ -1,0 +1,40 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Mod Tidy",
+            "type": "shell",
+            "command": "go mod tidy",
+        },
+        {
+            "label": "Templ Build",
+            "type": "shell",
+            "command": "templ generate",
+        },
+        {
+            "label": "Go Build",
+            "type": "shell",
+            "command": "go build cmd/main.go",
+        },
+        {
+            "label": "Tailwind Build",
+            "type": "shell",
+            "command": "npx tailwindcss -i ./dist/main.css -o ./dist/tailwind.css",
+        },
+        {
+            "label": "Build",
+            "dependsOn": [
+                "Mod Tidy",
+                "Tailwind Build",
+                "Templ Build",
+                "Go Build"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
