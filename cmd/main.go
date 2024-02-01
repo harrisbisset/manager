@@ -7,7 +7,7 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/harrisbisset/uniworksite/api"
+	"github.com/harrisbisset/manager/api"
 	"github.com/labstack/echo"
 )
 
@@ -23,6 +23,8 @@ func main() {
 		logger,
 		// data.CreateConfig(),
 	)
+
+	api.SetRoutes()
 
 	if err := api.GetApp().Start(strPort); err != http.ErrServerClosed {
 		log.Fatal(err)

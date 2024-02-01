@@ -1,4 +1,4 @@
-module github.com/harrisbisset/uniworksite
+module github.com/harrisbisset/manager
 
 go 1.21.5
 

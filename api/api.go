@@ -3,6 +3,7 @@ package api
 import (
 	"log/slog"
 
+	"github.com/harrisbisset/manager/api/handler"
 	"github.com/labstack/echo"
 )
 
@@ -40,4 +41,13 @@ func New(
 
 func (a *API) GetApp() *echo.Echo {
 	return a.App
+}
+
+func (a *API) SetRoutes() {
+	indexHandler := handler.IndexHandler{}
+
+	a.App.GET("/", indexHandler.View)
+
+	// a.App.Static("/dist/")
+	// a.App.Static("/public/")
 }

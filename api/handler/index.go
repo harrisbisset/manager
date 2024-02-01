@@ -1,12 +1,17 @@
 package handler
 
 import (
-	"github.com/harrisbisset/uniworksite/views/layout"
+	"github.com/harrisbisset/manager/views/index"
 	"github.com/labstack/echo"
 )
 
-type IndexHandler struct{}
+type IndexService interface {
+}
 
-func (i IndexHandler) HandleShow(c echo.Context) error {
-	return Render(c, layout.Base())
+type IndexHandler struct {
+	IndexService IndexService
+}
+
+func (i IndexHandler) View(c echo.Context) error {
+	return Render(c, index.Index())
 }
